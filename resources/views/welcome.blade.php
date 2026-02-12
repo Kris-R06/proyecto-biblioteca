@@ -70,7 +70,7 @@
                         <a href="#" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Catálogo</a>
                         <a href="#" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Servicios</a>
                         
-                        <a href="#" class="bg-brand-600 hover:bg-brand-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-brand-600/30 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <a href="{{ route('login')}}" class="bg-brand-600 hover:bg-brand-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg shadow-brand-600/30 flex items-center gap-2 transform hover:-translate-y-0.5">
                             <i class="ph-bold ph-user"></i>
                             Iniciar Sesión
                         </a>
@@ -90,7 +90,7 @@
                     <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-brand-600 hover:bg-gray-50">Catálogo</a>
                     <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-brand-600 hover:bg-gray-50">Servicios</a>
                     <div class="pt-4 border-t border-gray-100 mt-2">
-                        <a href="#" class="w-full flex justify-center items-center gap-2 bg-brand-600 text-white px-4 py-3 rounded-lg font-medium shadow-md">
+                        <a href="{{ route('login') }}" class="w-full flex justify-center items-center gap-2 bg-brand-600 text-white px-4 py-3 rounded-lg font-medium shadow-md">
                             <i class="ph-bold ph-sign-in"></i>
                             Iniciar Sesión
                         </a>
@@ -111,7 +111,7 @@
 
                 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span class="inline-block py-1 px-3 rounded-full bg-brand-600/20 border border-brand-500/30 text-brand-100 text-sm font-semibold mb-6 backdrop-blur-sm">
-                        📚 Bienvenidos a Bibliotech
+                        Bienvenidos a Bibliotech
                     </span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
                         Explora un universo de <br>
