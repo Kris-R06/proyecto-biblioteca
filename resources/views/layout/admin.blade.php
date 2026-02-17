@@ -42,7 +42,7 @@
         </div>
 
         <nav class="flex-1 px-3 py-6 space-y-1 overflow-y-auto custom-scrollbar">
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-600 text-white shadow-lg shadow-brand-600/20 group">
+            <a href="{{ route('home') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-brand-600 text-white shadow-lg shadow-brand-600/20 group">
                 <i class="ph ph-house text-lg"></i>
                 <span class="font-medium">Inicio</span>
             </a>

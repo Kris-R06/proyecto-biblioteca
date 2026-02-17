@@ -12,4 +12,22 @@ class CategoriasController extends Controller
         $categorias = Categoria::all();
         return view('categorias.index', compact('categorias'));
     }
+
+    public function create()
+    {
+        return view('categorias.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+
+        $categoria = new Categoria();
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
+
+        return redirect()->route('categorias.index')->with('success', 'Categoría creada exitosamente.');
+    }
 }

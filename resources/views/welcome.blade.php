@@ -66,7 +66,7 @@
                     </div>
 
                     <nav class="hidden md:flex space-x-8 items-center">
-                        <a href="#" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Inicio</a>
+                        <a href="{{ route('home') }}" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Inicio</a>
                         <a href="#" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Catálogo</a>
                         <a href="#" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Servicios</a>
                         
@@ -86,7 +86,7 @@
 
             <div id="mobile-menu" class="md:hidden bg-white border-b border-gray-100 shadow-xl">
                 <div class="px-4 pt-2 pb-6 space-y-2">
-                    <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-brand-600 bg-brand-50">Inicio</a>
+                    <a href="{{ route('home') }}" class="block px-3 py-3 rounded-md text-base font-medium text-brand-600 bg-brand-50">Inicio</a>
                     <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-brand-600 hover:bg-gray-50">Catálogo</a>
                     <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-brand-600 hover:bg-gray-50">Servicios</a>
                     <div class="pt-4 border-t border-gray-100 mt-2">
