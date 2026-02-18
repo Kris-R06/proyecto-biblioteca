@@ -12,24 +12,6 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login()
-    {
-        $credentials = request()->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            request()->session()->regenerate();
-            return redirect()->route('home');
-        }
-
-        return back()->withErrors([
-            'email' => 'Las credenciales son incorrectas.',
-        ]);    
-
-    }
-
     public function register()
     {
         $validatedData = request()->validate([
@@ -49,6 +31,24 @@ class AuthController extends Controller
         #redirigir después de registrarse
         Auth::login($user);
         return redirect()->route('home');
+    }
+
+        public function login()
+    {
+        $credentials = request()->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            request()->session()->regenerate();
+            return redirect()->route('home');
+        }
+
+        return back()->withErrors([
+            'email' => 'Las credenciales son incorrectas.',
+        ]);    
+
     }
 
     public function logout()
