@@ -34,7 +34,7 @@
                                         Editar
                                     </a>
                                     
-                                    <form action="#" method="POST" class="m-0 p-0">
+                                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" class="m-0 p-0">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="inline-flex items-center justify-center bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded text-sm font-medium transition-colors">
