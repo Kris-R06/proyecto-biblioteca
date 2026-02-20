@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Libro extends Model
 {
-    //
+    protected $table_name = 'libros';
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'categoria_id');
+    }
 }
