@@ -11,7 +11,8 @@ class LibrosController extends Controller
 {
     public function index()
     {
-        return view('libros.index');
+        $libros = Libro::paginate(10);
+        return view('libros.index', compact('libros'));
     }
 
     public function create()
