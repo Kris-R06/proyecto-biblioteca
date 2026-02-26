@@ -33,3 +33,4 @@ Route::middleware('auth')->group(function () {
     Route::put('/libros/{id}', [LibrosController::class, 'update'])->name('libros.update');
     Route::delete('/libros/{id}', [LibrosController::class, 'destroy'])->name('libros.destroy');
 });
+
