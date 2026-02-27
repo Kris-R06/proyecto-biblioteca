@@ -14,7 +14,7 @@
             <div class="mt-4">
                 <a href="{{ route('categorias.index') }}" class="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded transition">Volver a la lista de categorias</a>  
             </div>
-
         </form>
-
+    </div>
+    
 @endsection

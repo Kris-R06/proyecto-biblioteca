@@ -22,7 +22,7 @@
             <div class="p-3 bg-green-50 text-green-600 rounded-lg"><i class="ph-duotone ph-users text-2xl"></i></div>
         </div>
     </div>
-
+    
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
             <h3 class="font-bold text-gray-800">Préstamos Recientes</h3>

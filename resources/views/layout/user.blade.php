@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Biblioteca - Dashboard</title>
+    <title>Usuario Biblioteca - Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -48,22 +48,9 @@
             </a>
             
             <div class="pt-4 pb-2"><p class="px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Gestión</p></div>
-
-            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all group">
-                <i class="ph ph-users text-lg group-hover:text-brand-500"></i>
-                <span class="font-medium">Usuarios</span>
-            </a>
-            <a href="{{ route('libros.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all group">
-                <i class="ph ph-book-open text-lg group-hover:text-brand-500"></i>
-                <span class="font-medium">Libros</span>
-            </a>
             <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all group">
                 <i class="ph ph-identification-card text-lg group-hover:text-brand-500"></i>
                 <span class="font-medium">Préstamos</span>
-            </a>
-            <a href="{{ route('categorias.index') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all group">
-                <i class="ph ph-squares-four text-lg group-hover:text-brand-500"></i>
-                <span class="font-medium">Categorías</span>
             </a>
         </nav>
 

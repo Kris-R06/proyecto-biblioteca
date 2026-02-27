@@ -3,7 +3,6 @@
 
     <div class="flex-1 p-6">
         <h1 class="text-2xl font-bold mb-4">Editar Categoría</h1>
-
         <div class="bg-white rounded-lg shadow p-4">
             <form action="{{ route('categorias.update', $categoria->id) }}" method="POST">
                 @csrf

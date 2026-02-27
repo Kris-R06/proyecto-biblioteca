@@ -12,7 +12,6 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-
         if ($user->user_type === 'admin') {
             $libros = Libro::paginate(3);
             return view('home.index', compact('libros'));
