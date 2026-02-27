@@ -77,7 +77,7 @@
                     <span class="text-xs text-gray-500">{{ Auth::user()->email }}</span>
                 </div>
                 <div class="h-9 w-9 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 border border-brand-200">
-                    <i class="ph-fill ph-user text-xl"></i>
+                    <span class="text-xl font-bold">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
                 </div>
             </div>
         </header>
