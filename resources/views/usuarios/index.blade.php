@@ -4,7 +4,7 @@
     <div class="flex-1 p-6">
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-2xl font-bold">Usuarios</h1>
-            <a href="#" class="bg-brand-500 hover:bg-brand-600 text-white py-2 px-4 rounded-md transition-colors">Crear nuevo usuario</a>
+            <a href="{{ route('usuarios.create') }}" class="bg-brand-500 hover:bg-brand-600 text-white py-2 px-4 rounded-md transition-colors">Crear nuevo usuario</a>
         </div>
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -30,12 +30,11 @@
                             <td class="px-4 py-2 border-b">{{ $usuario->email }}</td>
                             <td class="px-4 py-2 border-b">{{ $usuario->user_type }}</td>
                             <td class="px-4 py-2 border-b">
-                                <!-- Aquí puedes agregar botones de acción como Editar o Eliminar -->
                                 <div class="flex items-center gap-2">
-                                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar">
+                                    <a href="{{ route('usuarios.edit', $usuario->id) }}" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar">
                                         <i class="ph-bold ph-pencil-simple text-lg"></i>
                                     </a>
-                                    <form action="#" method="POST" class="m-0 p-0">
+                                    <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" class="m-0 p-0">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar">

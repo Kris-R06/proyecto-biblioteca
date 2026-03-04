@@ -7,19 +7,19 @@
         @csrf
         <div class="mb-4">
             <label for="titulo" class="block text-gray-700 font-medium mb-2">Título</label>
-            <input type="text" name="titulo" id="titulo" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200" required>
+            <input type="text" name="titulo" id="titulo" value="{{ old('titulo') }}" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200" required>
         </div>
         <div class="mb-4">
             <label for="autor" class="block text-gray-700 font-medium mb-2">Autor</label>
-            <input type="text" name="autor" id="autor" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200" required>
+            <input type="text" name="autor" id="autor" value="{{ old('autor') }}" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200" required>
         </div>
         <div class="mb-4">
             <label for="isbn" class="block text-gray-700 font-medium mb-2">ISBN</label>
-            <input type="text" name="isbn" id="isbn" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200">
+            <input type="text" name="isbn" id="isbn" value="{{ old('isbn') }}" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200">
         </div>
         <div class="mb-4">
             <label for="editorial" class="block text-gray-700 font-medium mb-2">Editorial</label>
-            <input type="text" name="editorial" id="editorial" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200">
+            <input type="text" name="editorial" id="editorial" value="{{ old('editorial') }}" class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200">
         </div>
         <div class="mb-4">
             <label for="categoria_id" class="block text-gray-700 font-medium mb-2">Categoría</label>
