@@ -34,6 +34,10 @@
                                     <a href="{{ route('usuarios.edit', $usuario->id) }}" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar">
                                         <i class="ph-bold ph-pencil-simple text-lg"></i>
                                     </a>
+                                    <a href="{{ route('usuarios.delete_confirm', $usuario->id) }}" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar">
+                                        <i class="ph-bold ph-trash text-lg"></i>
+                                    </a>
+                                    <!--
                                     <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" class="m-0 p-0">
                                         @csrf
                                         @method('DELETE')
@@ -41,6 +45,7 @@
                                             <i class="ph-bold ph-trash text-lg"></i>
                                         </button>
                                     </form>
+                                    -->
                             </td> </tr>
                     @endforeach
                 </tbody>

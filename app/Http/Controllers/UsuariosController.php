@@ -66,6 +66,12 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente.');
     }
 
+    public function delete_confirm($id)
+    {
+        $user = User::findOrFail($id);
+        return view('usuarios.delete_confirm', compact('user'));
+    }
+
     public function destroy($id)
     {
         $user = User::findOrFail($id);
