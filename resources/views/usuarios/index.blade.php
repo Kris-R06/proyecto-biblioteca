@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('content')
 
-    <div class="flex-1 p-6">
+    <div class="container mx-auto px-4 py-8">
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-2xl font-bold">Usuarios</h1>
             <a href="{{ route('usuarios.create') }}" class="bg-brand-500 hover:bg-brand-600 text-white py-2 px-4 rounded-md transition-colors">Crear nuevo usuario</a>

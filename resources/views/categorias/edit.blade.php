@@ -1,7 +1,7 @@
 @extends ('layout.admin')
 @section ('content')
 
-    <div class="flex-1 p-6">
+    <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-4">Editar Categoría</h1>
         <div class="bg-white rounded-lg shadow p-4">
             <form action="{{ route('categorias.update', $categoria->id) }}" method="POST">

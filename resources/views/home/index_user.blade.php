@@ -1,7 +1,7 @@
 @extends ('layout.user')
 @section ('content')
 
-    <div class="container">
+    <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-4">Bienvenido a tu Dashboard</h1>
         <p class="text-gray-700">Aquí puedes ver tus préstamos actuales y gestionar tu cuenta.</p>
         <div class="mt-6">
@@ -11,6 +11,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

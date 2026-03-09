@@ -26,7 +26,7 @@ class AuthController extends Controller
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
-            'username' => $validatedData['email'], // Asignar el email como username
+            'username' => $validatedData['email'],
             'user_type' => 'user', // Asignar un tipo de usuario por defecto
         ]);
         
