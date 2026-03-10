@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-4">Préstamos</h1>
 
-        <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Nuevo Préstamo</a>
+        <a href="{{ route('prestamos.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Nuevo Préstamo</a>
 
         <table class="min-w-full bg-white border border-gray-200">
             <thead>
