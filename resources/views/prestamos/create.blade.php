@@ -23,6 +23,12 @@
                 <p><strong>Nombre:</strong> {{ $usuario->name }}</p>
                 <p><strong>Email:</strong> {{ $usuario->email }}</p>
             </div>
+
+            <form action="{{ route('prestamos.seleccionar_libro') }}" method="POST">
+                @csrf
+                <input type="hidden" name="usuario_id" value="{{ $usuario->id }}">
+                <input type="submit" value="Seleccionar Libro" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded transition">
+            </form>
         @endisset
 
         @if(isset($usuario_no_encontrado) && $usuario_no_encontrado)

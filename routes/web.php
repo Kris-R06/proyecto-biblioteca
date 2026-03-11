@@ -48,6 +48,8 @@ route::middleware(['auth', 'user_type:admin'])->group(function () {
     Route::get('/prestamos', [PrestamosController::class, 'index']) ->name('prestamos.index');
     Route::get('/prestamos/create', [PrestamosController::class, 'create']) ->name('prestamos.create');
     Route::post('/prestamos/buscar_usuario', [PrestamosController::class, 'buscar_usuario']) ->name('prestamos.buscar_usuario');
+    Route::post('/prestamos/seleccionar_libro', [PrestamosController::class, 'seleccionar_libro']) ->name('prestamos.seleccionar_libro');
+    Route::post('/prestamos/store', [PrestamosController::class, 'store']) ->name('prestamos.store');
 });
 
 route ::middleware(['auth', 'user_type:user'])->group(function () {

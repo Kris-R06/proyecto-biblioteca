@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Libro;
 use App\Models\Prestamo;
@@ -11,7 +12,7 @@ class PrestamosController extends Controller
 {
     public function index()
     {
-        $prestamos = [];
+        $prestamos = Prestamo::with('usuario', 'libro')->get();
         return view('prestamos.index', compact('prestamos'));
     }
 
@@ -50,4 +51,38 @@ class PrestamosController extends Controller
         // Si no se ingresó nada, regresar la vista sin usuario
         return view('prestamos.create');
     }   
+
+    public function seleccionar_libro(Request $request)
+    {
+        $usuario_id = $request->input('usuario_id');
+        $libros = Libro::all();
+        $usuario = User::findOrFail($usuario_id);
+
+        return view('prestamos.select_libro', compact('usuario', 'libros'));
+    }
+
+    public function store(Request $request)
+    {
+        # Crear transacción
+        DB::beginTransaction();
+        try{
+            $prestamo = new Prestamo();
+            $prestamo->usuario_id = $request->input('usuario_id');
+            $prestamo->libro_id = $request->input('libro_id');
+            $prestamo->estado = 'pendiente';
+            $prestamo->save();
+
+            $libro = Libro::findOrFail($request->input('libro_id'));
+            $libro->estatus = 1;
+            $libro->save();
+
+            DB::commit();
+        }
+        catch(\Exception $e){
+            DB::rollback();
+            return redirect()->route('prestamos.index')->with('error', 'Error al registrar el préstamo: ' . $e->getMessage());
+        }
+        return redirect()->route('prestamos.index')->with('success', 'Préstamo creado exitosamente.');
+
+    }
 }

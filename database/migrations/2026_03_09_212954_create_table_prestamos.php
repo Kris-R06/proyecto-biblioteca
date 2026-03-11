@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('table_prestamos', function (Blueprint $table) {
+        Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->datetime('fecha_entrega')->nullable();
@@ -21,6 +21,7 @@ return new class extends Migration
 
             $table->foreign('libro_id')->references('id')->on('libros')->onDelete('cascade');
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

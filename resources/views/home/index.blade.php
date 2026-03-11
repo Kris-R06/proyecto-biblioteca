@@ -34,32 +34,41 @@
                     <tr>
                         <th class="px-6 py-3">Usuario</th>
                         <th class="px-6 py-3">Libro</th>
-                        <th class="px-6 py-3">Fecha</th>
                         <th class="px-6 py-3">Estado</th>
                         <th class="px-6 py-3 text-right">Acción</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 font-medium text-gray-900">Ana García</td>
-                        <td class="px-6 py-4">Cien años de soledad</td>
-                        <td class="px-6 py-4">05 Feb 2026</td>
-                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">A tiempo</span></td>
-                        <td class="px-6 py-4 text-right"><button class="text-gray-400 hover:text-brand-600"><i class="ph-bold ph-pencil-simple text-lg"></i></button>
-                        <button class="text-gray-400 hover:text-brand-600"><i class="ph-bold ph-trash text-lg"></i></button>
+                    @foreach($prestamos as $prestamo)
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="px-6 py-4 font-medium text-gray-900">{{ $prestamo->usuario ? $prestamo->usuario->name : 'Usuario no disponible' }}</td>
+                        <td class="px-6 py-4">{{ $prestamo->libro ? $prestamo->libro->titulo : 'Libro no disponible' }}</td>
+                        <td class="px-6 py-4">
+                            @if($prestamo->estado == 'pendiente')
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Pendiente</span>
+                            @elseif($prestamo->estado == 'vencido')
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">Vencido</span>
+                            @else
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">Devuelto</span>
+                            @endif
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex items-center justify-end gap-3">
+                                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar"><i class="ph-bold ph-pencil-simple text-lg"></i></a>
+                                <form action="#" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar"><i class="ph-bold ph-trash text-lg"></i></button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 font-medium text-gray-900">Carlos Díaz</td>
-                        <td class="px-6 py-4">Clean Code</td>
-                        <td class="px-6 py-4">04 Feb 2026</td>
-                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Pendiente</span></td>
-                        <td class="px-6 py-4 text-right"><button class="text-gray-400 hover:text-brand-600"><i class="ph-bold ph-pencil-simple text-lg"></i></button>
-                        <button class="text-gray-400 hover:text-brand-600"><i class="ph-bold ph-trash text-lg"></i></button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="px-6 py-4 bg-gray-50 border-t border-gray-100">
+            {{ $prestamos->links() }}
         </div>
     </div>
 
@@ -88,7 +97,13 @@
                         <td class="px-6 py-4">{{ $libro->isbn }}</td>
                         <td class="px-6 py-4">{{ $libro->categoria->nombre }}</td>
                         <td class="px-6 py-4">
-                            <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">Disponible</span>
+                            @if($libro->estatus == 0)
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">Disponible</span>
+                            @elseif($libro->estatus == 1)
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Prestado</span>
+                            @else
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">Sin información</span>
+                            @endif
                         </td>
                         <td class="px-6 py-4 text-right">
                             <div class="flex items-center justify-end gap-3">
