@@ -10,12 +10,22 @@
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
-            <div><p class="text-sm text-gray-500">Total Libros</p><h3 class="text-3xl font-bold text-gray-800 mt-1">1,240</h3></div>
-            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg"><i class="ph-duotone ph-books text-2xl"></i></div>
+            <div>
+                <p class="text-sm text-gray-500">Total Libros</p>
+                <h3 class="text-3xl font-bold text-gray-800 mt-1">1,240</h3>
+            </div>
+            <div class="p-3 bg-blue-50 text-blue-600 rounded-lg">
+                <i class="ph-duotone ph-books text-2xl"></i>
+            </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
-            <div><p class="text-sm text-gray-500">Activos</p><h3 class="text-3xl font-bold text-gray-800 mt-1">85</h3></div>
-            <div class="p-3 bg-orange-50 text-orange-600 rounded-lg"><i class="ph-duotone ph-clock-countdown text-2xl"></i></div>
+            <div>
+                <p class="text-sm text-gray-500">Activos</p>
+                <h3 class="text-3xl font-bold text-gray-800 mt-1">85</h3>
+            </div>
+            <div class="p-3 bg-orange-50 text-orange-600 rounded-lg">
+                <i class="ph-duotone ph-clock-countdown text-2xl"></i>
+            </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
             <div><p class="text-sm text-gray-500">Usuarios</p><h3 class="text-3xl font-bold text-gray-800 mt-1">342</h3></div>
@@ -26,7 +36,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
             <h3 class="font-bold text-gray-800">Préstamos Recientes</h3>
-            <a href="#" class="text-sm text-brand-600 hover:text-brand-800 font-medium">Ver todos</a>
+            <a href="{{ route('prestamos.index') }}" class="text-sm bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded shadow transition-colors">Ver todos</a>
         </div>
         <div class="overflow-x-auto">
             <table class="w-full text-left text-sm text-gray-600">
@@ -75,7 +85,7 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
             <h3 class="font-bold text-gray-800">Lista de Libros</h3>
-            <a href="{{ route('libros.create') }}" class="text-sm text-brand-600 hover:text-brand-800 font-medium">Añadir Libro</a>
+            <a href="{{ route('libros.create') }}" class="text-sm bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded shadow transition-colors">Añadir Libro</a>
         </div>
         <div class="overflow-x-auto">
             <table class="w-full text-left text-sm text-gray-600">
@@ -102,7 +112,7 @@
                             @elseif($libro->estatus == 1)
                                 <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Prestado</span>
                             @else
-                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">Sin información</span>
+                                <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">Desconocido</span>
                             @endif
                         </td>
                         <td class="px-6 py-4 text-right">

@@ -15,38 +15,36 @@
             </div>
         @endif
 
-        <div class="bg-white rounded-lg shadow p-4">
-            <table class="w-full table-auto">
-                <thead>
-                    <tr class="text-left text-gray-700">
-                        <th class="px-4 py-2 border-b">ID</th>
-                        <th class="px-4 py-2 border-b">Nombre</th>
-                        <th class="px-4 py-2 border-b w-48">Acciones</th> </tr>
-                </thead>
-                <tbody>
-                    @foreach ($categorias as $categoria)
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-gray-600">
+                    <thead class="bg-gray-50 text-gray-700 font-semibold uppercase text-xs">
+                        <tr>
+                            <th class="px-6 py-3">ID</th>
+                            <th class="px-6 py-3">Nombre</th>
+                            <th class="px-6 py-3 text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        @foreach ($categorias as $categoria)
                         <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-4 py-2 border-b">{{ $categoria->id }}</td>
-                            <td class="px-4 py-2 border-b">{{ $categoria->nombre }}</td>
-                            <td class="px-4 py-2 border-b">
-                                
-                                <div class="flex items-center gap-2">
-                                    <a href="{{ route('categorias.edit', $categoria->id) }}" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar">
-                                        <i class="ph-bold ph-pencil-simple text-lg"></i>
-                                    </a>
-                                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" class="m-0 p-0">
+                            <td class="px-6 py-4 font-medium text-gray-900">{{ $categoria->id }}</td>
+                            <td class="px-6 py-4">{{ $categoria->nombre }}</td>
+                            <td class="px-6 py-4 text-right">
+                                <div class="flex items-center justify-end gap-3">
+                                    <a href="{{ route('categorias.edit', $categoria->id) }}" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar"><i class="ph-bold ph-pencil-simple text-lg"></i></a>
+                                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar">
-                                            <i class="ph-bold ph-trash text-lg"></i>
-                                        </button>
+                                        <button type="submit" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar"><i class="ph-bold ph-trash text-lg"></i></button>
                                     </form>
                                 </div>
-
-                            </td> </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="px-6 py-4 bg-gray-50 border-t border-gray-100">
             {{ $categorias->links() }}

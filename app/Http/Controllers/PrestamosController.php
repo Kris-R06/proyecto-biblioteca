@@ -12,7 +12,7 @@ class PrestamosController extends Controller
 {
     public function index()
     {
-        $prestamos = Prestamo::with('usuario', 'libro')->get();
+        $prestamos = Prestamo::with('usuario', 'libro')->paginate(7);
         return view('prestamos.index', compact('prestamos'));
     }
 
@@ -57,6 +57,7 @@ class PrestamosController extends Controller
         $usuario_id = $request->input('usuario_id');
         $libros = Libro::all();
         $usuario = User::findOrFail($usuario_id);
+        $libros = Libro::where('estatus', 0)->orderBy('id', 'asc')->get();
 
         return view('prestamos.select_libro', compact('usuario', 'libros'));
     }
