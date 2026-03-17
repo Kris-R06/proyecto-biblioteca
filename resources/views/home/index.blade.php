@@ -12,7 +12,7 @@
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
             <div>
                 <p class="text-sm text-gray-500">Total Libros</p>
-                <h3 class="text-3xl font-bold text-gray-800 mt-1">1,240</h3>
+                <h3 class="text-3xl font-bold text-gray-800 mt-1">{{ $totalLibros }}</h3>
             </div>
             <div class="p-3 bg-blue-50 text-blue-600 rounded-lg">
                 <i class="ph-duotone ph-books text-2xl"></i>
@@ -20,16 +20,20 @@
         </div>
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
             <div>
-                <p class="text-sm text-gray-500">Activos</p>
-                <h3 class="text-3xl font-bold text-gray-800 mt-1">85</h3>
+                <p class="text-sm text-gray-500">Prestamos Activos</p>
+                <h3 class="text-3xl font-bold text-gray-800 mt-1">{{ $prestamosActivos }}</h3>
             </div>
             <div class="p-3 bg-orange-50 text-orange-600 rounded-lg">
                 <i class="ph-duotone ph-clock-countdown text-2xl"></i>
             </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
-            <div><p class="text-sm text-gray-500">Usuarios</p><h3 class="text-3xl font-bold text-gray-800 mt-1">342</h3></div>
-            <div class="p-3 bg-green-50 text-green-600 rounded-lg"><i class="ph-duotone ph-users text-2xl"></i></div>
+            <div><p class="text-sm text-gray-500">Usuarios</p>
+            <h3 class="text-3xl font-bold text-gray-800 mt-1">{{ $totalUsuarios }}</h3>
+            </div>
+            <div class="p-3 bg-green-50 text-green-600 rounded-lg">
+                <i class="ph-duotone ph-users text-2xl"></i>
+            </div>
         </div>
     </div>
     

@@ -20,6 +20,7 @@
                 <table class="w-full text-left text-sm text-gray-600">
                     <thead class="bg-gray-50 text-gray-700 font-semibold uppercase text-xs">
                         <tr>
+                            <th class="px-6 py-3">ID</th>
                             <th class="px-6 py-3">Título</th>
                             <th class="px-6 py-3">Autor</th>
                             <th class="px-6 py-3">ISBN</th>
@@ -31,7 +32,8 @@
                     <tbody class="divide-y divide-gray-100">
                         @foreach($libros as $libro)
                         <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 font-medium text-gray-900">{{ $libro->titulo }}</td>
+                            <td class="px-6 py-4 font-medium text-gray-900">{{ $libro->id }}</td>
+                            <td class="px-6 py-4">{{ $libro->titulo }}</td>
                             <td class="px-6 py-4">{{ $libro->autor }}</td>
                             <td class="px-6 py-4">{{ $libro->isbn }}</td>
                             <td class="px-6 py-4">{{ $libro->categoria->nombre }}</td>
