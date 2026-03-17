@@ -48,11 +48,7 @@
                                     @if($prestamo->estado == 'pendiente')
                                         <a href="{{ route('prestamos.entregar', $prestamo->id) }}" class="text-blue-400 hover:text-blue-600 transition-colors" title="Entregar"><i class="ph-bold ph-arrow-circle-left text-lg"></i></a>
                                     @endif
-                                    <form action="#" method="POST" class="inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-blue-400 hover:text-red-600 transition-colors" title="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este préstamo?')"><i class="ph-bold ph-trash text-lg"></i></button>
-                                    </form>
+                                        <a href="{{ route('prestamos.delete_confirm', $prestamo->id) }}" class="text-blue-400 hover:text-red-600 transition-colors" title="Eliminar"><i class="ph-bold ph-trash text-lg"></i></a>
                                 </div>
                             </td>
                         </tr>

@@ -107,4 +107,17 @@ class PrestamosController extends Controller
         }
         return redirect()->route('prestamos.index')->with('success', 'Préstamo entregado exitosamente.');
     }
+
+    public function delete_confirm($id)
+    {
+        $prestamo = Prestamo::findOrFail($id);
+        return view('prestamos.delete_confirm', compact('prestamo'));
+    }
+
+    public function destroy($id)
+    {
+        $prestamo = Prestamo::findOrFail($id);
+        $prestamo->delete();
+        return redirect()->route('prestamos.index')->with('success', 'Préstamo eliminado exitosamente.');
+    }
 }

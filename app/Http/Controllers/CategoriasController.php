@@ -50,6 +50,12 @@ class CategoriasController extends Controller
         return redirect()->route('categorias.index')->with('success', 'Categoría actualizada exitosamente.');
     }
 
+    public function delete_confirm($id)
+    {
+        $categoria = Categoria::findOrFail($id);
+        return view('categorias.delete_confirm', compact('categoria'));
+    }
+
     public function destroy($id)
     {
         $categoria = Categoria::findOrFail($id);

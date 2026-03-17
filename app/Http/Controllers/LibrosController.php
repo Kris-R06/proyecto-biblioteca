@@ -41,7 +41,7 @@ class LibrosController extends Controller
         $libros->isbn = $request->isbn;
         $libros->save();
 
-        return redirect()->route('home')->with('success', 'Libro creado exitosamente.');
+        return redirect()->route('libros.index')->with('success', 'Libro creado exitosamente.');
     }
 
     public function edit($id)
@@ -69,14 +69,19 @@ class LibrosController extends Controller
         $libro->isbn = $request->isbn;
         $libro->save();
 
-        return redirect()->route('home')->with('success', 'Libro actualizado exitosamente.');
+        return redirect()->route('libros.index')->with('success', 'Libro actualizado exitosamente.');
     }
 
-    public function destroy($id)
+    public function delete_confirm($id)
+    {
+        $libro = Libro::findOrFail($id);
+        return view('libros.delete_confirm', compact('libro'));
+    }
+     public function destroy($id)
     {
         $libro = Libro::findOrFail($id);
         $libro->delete();
 
-        return redirect()->route('home')->with('success', 'Libro eliminado exitosamente.');
+        return redirect()->route('libros.index')->with('success', 'Libro eliminado exitosamente.');
     }
 }
