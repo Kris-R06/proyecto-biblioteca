@@ -23,6 +23,7 @@
                             <th class="px-6 py-3">Usuario</th>
                             <th class="px-6 py-3">Libro</th>
                             <th class="px-6 py-3">Estado</th>
+                            <th class="px-6 py-3 text-right">Fecha de Entrega</th>
                             <th class="px-6 py-3 text-right">Acción</th>
                         </tr>
                     </thead>
@@ -35,19 +36,22 @@
                             <td class="px-6 py-4">
                                 @if($prestamo->estado == 'pendiente')
                                     <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Pendiente</span>
-                                @elseif($prestamo->estado == 'vencido')
-                                    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">Vencido</span>
+                                @elseif($prestamo->estado == 'entregado')
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">Entregado</span>
                                 @else
-                                    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">Devuelto</span>
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">Vencido</span>
                                 @endif
                             </td>
+                            <td class="px-6 py-4 text-right">{{ $prestamo->fecha_entrega ? $prestamo->fecha_entrega : 'N/A' }}</td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex items-center justify-end gap-3">
-                                    <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar"><i class="ph-bold ph-pencil-simple text-lg"></i></a>
+                                    @if($prestamo->estado == 'pendiente')
+                                        <a href="{{ route('prestamos.entregar', $prestamo->id) }}" class="text-blue-400 hover:text-blue-600 transition-colors" title="Entregar"><i class="ph-bold ph-arrow-circle-left text-lg"></i></a>
+                                    @endif
                                     <form action="#" method="POST" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este préstamo?')"><i class="ph-bold ph-trash text-lg"></i></button>
+                                        <button type="submit" class="text-blue-400 hover:text-red-600 transition-colors" title="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este préstamo?')"><i class="ph-bold ph-trash text-lg"></i></button>
                                     </form>
                                 </div>
                             </td>

@@ -33,8 +33,8 @@
                             <td class="px-6 py-4">{{ $usuario->user_type }}</td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex items-center justify-end gap-3">
-                                    <a href="{{ route('usuarios.edit', $usuario->id) }}" class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar"><i class="ph-bold ph-pencil-simple text-lg"></i></a>
-                                    <a href="{{ route('usuarios.delete_confirm', $usuario->id) }}" class="text-gray-400 hover:text-red-600 transition-colors" title="Eliminar"><i class="ph-bold ph-trash text-lg"></i></a>
+                                    <a href="{{ route('usuarios.edit', $usuario->id) }}" class="text-blue-400 hover:text-blue-600 transition-colors" title="Editar"><i class="ph-bold ph-pencil-simple text-lg"></i></a>
+                                    <a href="{{ route('usuarios.delete_confirm', $usuario->id) }}" class="text-blue-400 hover:text-red-600 transition-colors" title="Eliminar"><i class="ph-bold ph-trash text-lg"></i></a>
                                     <!--
                                     <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" class="inline">
                                         @csrf
