@@ -7,12 +7,13 @@ php-fpm &
 sleep 3
 
 # Generar la clave de la aplicación si no existe
-php artisan key:generate --force
+#php artisan key:generate --force
 
 # Migraciones 
 php artisan migrate --force
 
 # cachear configuración
+php artisan config:clear
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache

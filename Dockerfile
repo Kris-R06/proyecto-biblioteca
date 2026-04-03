@@ -1,3 +1,15 @@
+# FASE 1: BUILD FRONTEND
+FROM node:20 AS node_builder
+
+WORKDIR /app 
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+# FASE 2: BUILD BACKEND
 FROM php:8.4-fpm
 
 # Instalar depedencias del sistema
@@ -21,6 +33,9 @@ WORKDIR /var/www
 
 # Copiar proyecto
 COPY . .
+
+# Copiar assets compilados del frontend
+COPY --from=node_builder /app/public/build /var/www/public/build
 
 # Instalar dependecias de laravel
 RUN composer install --no-dev --optimize-autoloader
