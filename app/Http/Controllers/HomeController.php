@@ -14,11 +14,13 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         if ($user->user_type === 'admin') {
-            $totalLibros = Libro::count();
+
             $totalUsuarios = User::count();
             $prestamosActivos = Prestamo::where('estado', 'pendiente')->count();
-            $libros = Libro::paginate(3);
+            $libros = Libro::with('categoria')->paginate(3);
+            $totalLibros = $libros->total();
             $prestamos = Prestamo::with(['usuario', 'libro'])->paginate(3);
+
             return view('home.index', compact('libros', 'prestamos', 'totalLibros', 'totalUsuarios', 'prestamosActivos'));
         } else {
             return view('home.index_user');

@@ -79,4 +79,8 @@ class UsuariosController extends Controller
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente.');
     }
+
+    public function profile(){
+        return view('usuarios.profile');
+    }
 }

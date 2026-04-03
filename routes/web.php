@@ -20,6 +20,7 @@ Route::post('/login', [AuthController::class, 'login']) ->name('login');
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index']) ->name('home');
     Route::get('/logout', [AuthController::class, 'logout']) ->name('logout');
+    Route::get('/profile', [UsuariosController::class, 'profile']) ->name('usuarios.profile');
 });
 
 route::middleware(['auth', 'user_type:admin'])->group(function () {

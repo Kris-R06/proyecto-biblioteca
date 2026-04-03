@@ -4,7 +4,6 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-6">Eliminar Prestamo</h1>
         <p class="mb-4">¿Estás seguro de que deseas eliminar el préstamo?</p>
-
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full table-auto">
@@ -27,7 +26,6 @@
                 </table>
             </div>
         </div>
-
         <form action="{{ route('prestamos.destroy', $prestamo->id) }}" method="POST" class="flex gap-2 mt-6">
             @csrf
             @method('DELETE')
@@ -35,5 +33,4 @@
             <a href="{{ route('prestamos.index') }}" class="w-32 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-md transition-colors text-center flex items-center justify-center">No, cancelar</a>
         </form>
     </div>
-
 @endsection
