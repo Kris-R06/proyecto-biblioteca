@@ -12,3 +12,5 @@ Route::post('/login', [ApiController::class, 'login']);
 Route::post('/logout', [ApiController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/libros-disponibles', [ApiController::class, 'libros_disponibles'])->middleware('auth:sanctum');
 Route::post('/entregar-libro', [ApiController::class, 'entregar_libro'])->middleware('auth:sanctum');
+
+

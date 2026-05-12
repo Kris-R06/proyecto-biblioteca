@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\UsuarioRegistrado;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -20,18 +22,17 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|string|min:8',
         ]);
-
         #crear usuario
         $user = \App\Models\User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
             'username' => $validatedData['email'],
-            'user_type' => 'user', // Asignar un tipo de usuario por defecto
+            'user_type' => 'user',
         ]);
-        
         #redirigir después de registrarse
         Auth::login($user);
+        Mail::to($user->email)->queue(new UsuarioRegistrado($user));
         return redirect()->route('home');
     }
 

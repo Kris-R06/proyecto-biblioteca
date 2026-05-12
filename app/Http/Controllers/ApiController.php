@@ -37,8 +37,7 @@ class ApiController extends Controller
         return $libros_resource;
     }
 
-    public function entregar_libro(Request $request){
-    
+    public function entregar_libro(Request $request){    
     $request->validate([
         'prestamo_id' => 'required|integer|exists:prestamos,id',
     ]);
